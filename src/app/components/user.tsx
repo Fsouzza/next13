@@ -1,18 +1,14 @@
+'use client'
+import { useState } from "react"
 
-export default async function User() {
-    const response = await fetch('https://api.github.com/users/diego3g', {
-    //  next: {
-    //    revalidate: 30,
-    //  }
-  
-    cache: 'no-store'
-    })
-    const user = await response.json()
-  
+export function User() {
+    const [count, setCount] = useState(0)
+
+
     return (
       <div>
-        <h1>Home</h1>
-        <pre>{JSON.stringify(user, null, 2)}</pre>
+        <h1>{count}</h1>
+        <button onClick={() => setCount((state) => state + 1)}>Incrementar</button>
       </div>
     )
   }
